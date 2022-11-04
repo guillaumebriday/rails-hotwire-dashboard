@@ -3,7 +3,8 @@
 class OrderItem < ApplicationRecord
   belongs_to :order
 
-  validates :quantity,
+  validates :name,
+            :quantity,
             :unit_price,
             presence: true
 end

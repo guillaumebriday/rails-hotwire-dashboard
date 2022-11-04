@@ -1,6 +1,16 @@
 <h1>Orders</h1>
 
-
-<% @orders.each do |order| %>
-  <p><%= order.created_at %></p>
-<% end %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Total</th>
+      <th>Items</th>
+      <th>Status</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: 'orders/order', collection: @orders %>
+  </tbody>
+</table>

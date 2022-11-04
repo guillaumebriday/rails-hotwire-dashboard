@@ -1,0 +1,19 @@
+<%= link_to '&larr; Back'.html_safe, orders_path, class: 'btn btn-light' %>
+
+<h1>
+  Order <%= order_badge(@order) %>
+</h1>
+
+<%= render 'order_items/list', order_items: @order.order_items %>
+
+<div class="card mt-4">
+  <div class="card-header">
+    Total
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item text-end">
+      <strong><%= number_to_currency(@order.total) %></strong>
+    </li>
+  </ul>
+</div>

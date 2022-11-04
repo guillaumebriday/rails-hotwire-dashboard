@@ -1,0 +1,15 @@
+<li class="list-group-item">
+  <div class="row">
+    <div class="col">
+      <%= order_item.name %>
+    </div>
+
+    <div class="col text-end">
+      <%= number_to_currency(order_item.unit_price) %> x <%= order_item.quantity %>
+    </div>
+
+    <div class="col text-end">
+      <%= number_to_currency(order_item.total) %>
+    </div>
+  </div>
+</li>

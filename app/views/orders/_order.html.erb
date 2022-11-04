@@ -1,0 +1,10 @@
+<tr>
+  <th><%= l(order.created_at, format: :long) %></th>
+  <th><%= number_to_currency(order.total) %></th>
+  <th><%= pluralize(order.order_items.size, 'item') %></th>
+  <th><%= order_badge(order) %></th>
+
+  <th>
+    <%= link_to 'See details &rarr;'.html_safe, order_path(order), class: 'btn btn-sm btn-primary' %>
+  </th>
+</tr>
