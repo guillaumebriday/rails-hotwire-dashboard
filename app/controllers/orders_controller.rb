@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: %i[show]
 
   def index
-    @orders = Order.all
+    @orders = Order.by_status(params[:status])
   end
 
   def show

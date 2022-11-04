@@ -9,6 +9,10 @@ class Order < ApplicationRecord
     paid: 2
   }
 
+  scope :by_status, ->(status) {
+    where(status: status) if status.present?
+  }
+
   def total
     order_items.sum(:total)
   end

@@ -1,0 +1,11 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= active_link_to 'All', orders_path, class: 'nav-link', active: { status: '' } %>
+  </li>
+
+  <% Order.statuses.keys.each do |status| %>
+    <li class="nav-item">
+      <%= active_link_to status, orders_path(status: status), class: 'nav-link', active: { status: status } %>
+    </li>
+  <% end %>
+</ul>
