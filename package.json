@@ -1,0 +1,7 @@
+{
+  "license": "mit",
+  "private": "false",
+  "dependencies": {
+    "bootstrap": "^5.2.2"
+  }
+}
