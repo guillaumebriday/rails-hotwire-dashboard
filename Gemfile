@@ -9,6 +9,7 @@ gem 'rails'
 
 gem 'active_link_to'
 gem 'importmap-rails'
+gem 'redis'
 gem 'sassc-rails'
 gem 'sprockets-rails'
 gem 'stimulus-rails'

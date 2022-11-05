@@ -1,0 +1,17 @@
+<%= turbo_stream_from 'exports' %>
+
+<h1>Exports</h1>
+
+<div class="d-table w-100">
+  <div class="d-table-header-group">
+    <div class="d-table-row">
+      <div class="d-table-cell p-2">Date</div>
+      <div class="d-table-cell p-2">Progress</div>
+      <div class="d-table-cell p-2">Status</div>
+    </div>
+  </div>
+
+  <div class="d-table-row-group">
+    <%= render partial: 'exports/export', collection: @exports %>
+  </div>
+</div>

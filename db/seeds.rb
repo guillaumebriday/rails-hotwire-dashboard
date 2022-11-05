@@ -2,6 +2,7 @@
 
 require 'faker'
 
+Export.destroy_all
 Order.destroy_all
 
 Order.record_timestamps = false
