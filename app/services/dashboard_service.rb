@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Dashboard
+class DashboardService
   def initialize(orders)
     @orders = orders
   end
