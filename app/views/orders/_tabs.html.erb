@@ -1,11 +1,18 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <%= active_link_to 'All', orders_path, class: 'nav-link', active: { status: '' } %>
+    <%= active_link_to orders_path, class: 'nav-link', active: { status: '' } do %>
+      All
+      <span class="badge text-bg-primary"><%= Order.count %></span>
+    <% end %>
   </li>
 
   <% Order.statuses.keys.each do |status| %>
     <li class="nav-item">
-      <%= active_link_to status, orders_path(status: status), class: 'nav-link', active: { status: status } %>
+      <%= active_link_to orders_path(status: status), class: 'nav-link', active: { status: status } do %>
+        <%= status %>
+
+        <span class="badge text-bg-primary"><%= Order.by_status(status).count %></span>
+      <% end %>
     </li>
   <% end %>
 </ul>

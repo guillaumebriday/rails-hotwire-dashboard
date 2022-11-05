@@ -1,0 +1,32 @@
+<h1>Dashboard</h1>
+
+<%= render 'dashboard/search' %>
+
+<%= turbo_frame_tag 'dashboard' do %>
+  <div class="row">
+    <div
+      class="col-md-6"
+      data-controller="chart"
+      data-chart-data-value='<%= @cumulative_orders_total.to_json %>'
+    >
+      <canvas data-chart-target="canvas"></canvas>
+    </div>
+
+    <div
+      class="col-md-6"
+      data-controller="chart"
+      data-chart-data-value='<%= @order_items_quantity.to_json %>'
+    >
+      <canvas data-chart-target="canvas"></canvas>
+    </div>
+
+    <div
+      class="col-md-6"
+      data-controller="chart"
+      data-chart-data-value='<%= @best_seller_order_items.to_json %>'
+      data-chart-type-value='bar'
+    >
+      <canvas data-chart-target="canvas"></canvas>
+    </div>
+  </div>
+<% end %>

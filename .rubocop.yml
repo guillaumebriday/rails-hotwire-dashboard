@@ -37,3 +37,6 @@ Style/ClassAndModuleChildren:
 
 Style/HashSyntax:
   Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false

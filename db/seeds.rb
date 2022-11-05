@@ -4,15 +4,27 @@ require 'faker'
 
 Order.destroy_all
 
-10.times do
-  order = Order.create(status: rand(0..2))
+Order.record_timestamps = false
+
+products = Array.new(10) { Faker::Commerce.product_name }
+
+100.times do
+  date = rand(1.year.ago..Time.current)
+
+  order = Order.create(
+    created_at: date,
+    updated_at: date,
+    status: rand(0..2)
+  )
 
   rand(1..10).times do
     OrderItem.create(
       order:,
-      name: Faker::Commerce.product_name,
-      quantity: rand(1..10),
-      unit_price: rand(10.0..1000.0).round(2)
+      name: products.sample,
+      quantity: rand(1..50),
+      unit_price: Faker::Commerce.price
     )
   end
 end
+
+Order.record_timestamps = true

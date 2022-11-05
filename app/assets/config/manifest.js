@@ -4,3 +4,4 @@
 //= link_tree ../../../vendor/javascript .js
 
  //= link bootstrap/dist/js/bootstrap.bundle.js
+ //= link stimulus-chartjs/dist/stimulus-chartjs.es.js

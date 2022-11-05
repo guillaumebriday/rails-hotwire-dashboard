@@ -13,6 +13,15 @@ class Order < ApplicationRecord
     where(status: status) if status.present?
   }
 
+  scope :by_date, ->(query) {
+    date = case query
+           when 'last_6_months' then 6.months.ago
+           else 1.month.ago
+           end
+
+    where(created_at: date..)
+  }
+
   def total
     order_items.sum(:total)
   end

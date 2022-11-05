@@ -1,0 +1,17 @@
+<%= form_for dashboard_index_path,
+             method: :get,
+             html: {
+               data: {
+                 turbo_frame: 'dashboard',
+                 turbo_action: 'advance',
+                 controller: 'form',
+                 action: 'input->form#submit'
+               }
+             } do %>
+  <div class="row">
+    <%= label_tag :by_date, nil, class: 'col-form-label col-2' %>
+    <div class="col-4">
+      <%= select_tag :by_date, by_date_options, class: 'form-control' %>
+    </div>
+  </div>
+<% end %>
