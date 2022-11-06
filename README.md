@@ -2,6 +2,8 @@
 
 aka: **"You don't need React to build reactive applications".**
 
+https://user-images.githubusercontent.com/8252238/200192688-9a4ad6ce-5ba6-4d11-8fea-c240cecd9dd9.mp4
+
 ## Concept Overview
 
 They are many ways to build **reactive** web interfaces but do we really need to add the complexity of JavaScript frameworks like [Vue.js](https://vuejs.org/) or [React](https://reactjs.org/)?
@@ -16,7 +18,7 @@ Some features:
 - Insane performance
 - Really simple code to maintain
 - Reactive dashboards and filters
-- Background exports with real time updates in UI
+- Background exports with real time updates in UI with WebSockets
 
 ## Resources
 
