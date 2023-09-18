@@ -7,6 +7,7 @@ Order.destroy_all
 
 Order.record_timestamps = false
 
+# Limit the number of different products to 10.
 products = Array.new(10) { Faker::Commerce.product_name }
 
 100.times do
