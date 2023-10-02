@@ -1,0 +1,43 @@
+  <div class="row mb-4">
+    <div class="col">
+      <div class="card text-bg-primary shadow-sm">
+        <div class="card-header">
+          Total Order
+        </div>
+
+        <div class="card-body">
+          <p class="lh-1 mb-1 fs-3">
+            <%= number_to_currency(@order_items.not_draft.sum(:total)) %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card text-bg-info shadow-sm">
+        <div class="card-header">
+          Awaiting Payment
+        </div>
+
+        <div class="card-body">
+          <p class="lh-1 mb-1 fs-3">
+            <%= number_to_currency(@order_items.sent.sum(:total)) %>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card text-bg-success shadow-sm">
+        <div class="card-header">
+          Total Paid
+        </div>
+
+        <div class="card-body">
+          <p class="lh-1 mb-1 fs-3">
+            <%= number_to_currency(@order_items.paid.sum(:total)) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>

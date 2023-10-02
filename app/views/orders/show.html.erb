@@ -1,19 +1,22 @@
 <%= link_to '&larr; Back'.html_safe, orders_path, class: 'btn btn-light' %>
 
-<h1>
-  Order <%= order_badge(@order) %>
+<h1 class="d-flex justify-content-between align-items-center">
+  Order <span class="fs-5"><%= order_badge(@order) %></span>
 </h1>
 
 <%= render 'order_items/list', order_items: @order.order_items %>
 
-<div class="card mt-4">
-  <div class="card-header">
-    Total
-  </div>
 
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item text-end">
-      <strong><%= number_to_currency(@order.total) %></strong>
-    </li>
-  </ul>
+<div class="col-md-4 offset-md-8">
+  <div class="card mt-4">
+    <div class="card-header fw-bold">
+      Total
+    </div>
+
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item text-end">
+        <strong><%= number_to_currency(@order.total) %></strong>
+      </li>
+    </ul>
+  </div>
 </div>

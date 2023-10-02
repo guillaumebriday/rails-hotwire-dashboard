@@ -5,11 +5,11 @@
     </div>
 
     <div class="col text-end">
-      <%= number_to_currency(order_item.unit_price) %> x <%= order_item.quantity %>
+      <strong><%= number_to_currency(order_item.unit_price) %></strong> x <%= order_item.quantity %>
     </div>
 
     <div class="col text-end">
-      <%= number_to_currency(order_item.total) %>
+      <strong><%= number_to_currency(order_item.total) %></strong>
     </div>
   </div>
 </li>

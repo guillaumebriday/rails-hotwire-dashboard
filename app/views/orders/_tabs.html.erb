@@ -9,9 +9,11 @@
   <% Order.statuses.keys.each do |status| %>
     <li class="nav-item">
       <%= active_link_to orders_path(status: status), class: 'nav-link', active: { status: status } do %>
-        <%= status %>
+        <%= status.capitalize %>
 
-        <span class="badge text-bg-primary"><%= Order.by_status(status).count %></span>
+        <span class="<%= class_names('badge', order_badge_class(status)) %>">
+          <%= Order.by_status(status).count %>
+        </span>
       <% end %>
     </li>
   <% end %>

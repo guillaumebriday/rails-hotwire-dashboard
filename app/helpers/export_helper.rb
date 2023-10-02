@@ -7,6 +7,12 @@ module ExportHelper
     ((export.total_processed.to_f / export.total_count) * 100).round(2)
   end
 
+  def export_progress_bar_class(progression)
+    return 'bg-success' if progression >= 100
+
+    'progress-bar-striped progress-bar-animated bg-info'
+  end
+
   def export_badge(export)
     tag.span(export.status, class: class_names('badge', export_badge_class(export)))
   end

@@ -2,7 +2,11 @@
 
 class DashboardController < ApplicationController
   def index
-    @orders = Order.by_date(params[:by_date]).order(:created_at)
+    @orders = Order.by_date(params[:by_date])
+                   .by_product_name(params[:by_product_name])
+                   .order(:created_at)
+
+    @order_items = OrderItem.where(order_id: @orders)
 
     service = DashboardService.new(@orders)
 

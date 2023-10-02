@@ -6,7 +6,7 @@ class ExportJob < ApplicationJob
   def perform(export)
     export.update(status: :processing, total_count: Order.count)
 
-    Order.all.find_each.with_index do |_order, index|
+    Order.find_each.with_index do |_order, index|
       if (index % 5).zero? # Simulating slow process
         export.update(total_processed: index + 1)
         sleep 1

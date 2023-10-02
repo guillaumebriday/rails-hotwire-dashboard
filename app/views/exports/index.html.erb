@@ -1,17 +1,31 @@
 <%= turbo_stream_from 'exports' %>
 
-<h1>Exports</h1>
+<% if @exports.any? %>
+  <h1>Exports</h1>
 
-<div class="d-table w-100">
-  <div class="d-table-header-group">
-    <div class="d-table-row">
-      <div class="d-table-cell p-2">Date</div>
-      <div class="d-table-cell p-2">Progress</div>
-      <div class="d-table-cell p-2">Status</div>
+  <hr>
+
+  <div class="d-table w-100">
+    <div class="d-table-header-group fw-bold">
+      <div class="d-table-row">
+        <div class="d-table-cell p-2">Date</div>
+        <div class="d-table-cell p-2">Progress</div>
+        <div class="d-table-cell p-2">Status</div>
+      </div>
+    </div>
+
+    <div class="d-table-row-group">
+      <%= render partial: 'exports/export', collection: @exports %>
     </div>
   </div>
+<% else %>
+  <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">No Exports</h1>
 
-  <div class="d-table-row-group">
-    <%= render partial: 'exports/export', collection: @exports %>
+      <p class="col-md-8 fs-4">You can create an export by clicking to button below.</p>
+
+      <%= button_to 'Create export', exports_path, class: 'btn btn-primary btn-lg' %>
+    </div>
   </div>
-</div>
+<% end %>

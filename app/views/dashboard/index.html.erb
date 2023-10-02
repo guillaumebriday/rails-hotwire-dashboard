@@ -2,31 +2,49 @@
 
 <%= render 'dashboard/search' %>
 
+<hr>
+
 <%= turbo_frame_tag 'dashboard' do %>
-  <div class="row">
-    <div
-      class="col-md-6"
-      data-controller="chart"
-      data-chart-data-value='<%= @cumulative_orders_total.to_json %>'
-    >
-      <canvas data-chart-target="canvas"></canvas>
-    </div>
+  <%= render 'dashboard/stats' %>
 
-    <div
-      class="col-md-6"
-      data-controller="chart"
-      data-chart-data-value='<%= @order_items_quantity.to_json %>'
-    >
-      <canvas data-chart-target="canvas"></canvas>
-    </div>
+  <div class="bg-light p-3">
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+      <div class="col">
+        <div class="card">
+          <div
+            class="card-body"
+            data-controller="chart"
+            data-chart-data-value='<%= @cumulative_orders_total.to_json %>'
+          >
+            <canvas data-chart-target="canvas"></canvas>
+          </div>
+        </div>
+      </div>
 
-    <div
-      class="col-md-6"
-      data-controller="chart"
-      data-chart-data-value='<%= @best_seller_order_items.to_json %>'
-      data-chart-type-value='bar'
-    >
-      <canvas data-chart-target="canvas"></canvas>
+      <div class="col">
+        <div class="card">
+          <div
+            class="card-body"
+            data-controller="chart"
+            data-chart-data-value='<%= @order_items_quantity.to_json %>'
+          >
+            <canvas data-chart-target="canvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="card">
+          <div
+            class="card-body"
+            data-controller="chart"
+            data-chart-data-value='<%= @best_seller_order_items.to_json %>'
+            data-chart-type-value='bar'
+          >
+            <canvas data-chart-target="canvas"></canvas>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 <% end %>

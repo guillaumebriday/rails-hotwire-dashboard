@@ -8,10 +8,17 @@
                  action: 'input->form#submit'
                }
              } do %>
-  <div class="row">
-    <%= label_tag :by_date, nil, class: 'col-form-label col-2' %>
-    <div class="col-4">
+  <div class="row g-3">
+    <div class="col-md-6">
+      <%= label_tag :by_date, nil, class: 'form-label' %>
+
       <%= select_tag :by_date, by_date_options, class: 'form-control' %>
+    </div>
+
+    <div class="col-md-6">
+      <%= label_tag :by_product_name, nil, class: 'form-label' %>
+
+      <%= text_field_tag :by_product_name, params[:by_product_name].presence, class: 'form-control', placeholder: 'Search product...' %>
     </div>
   </div>
 <% end %>

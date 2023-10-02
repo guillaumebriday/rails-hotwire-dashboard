@@ -44,7 +44,7 @@ class DashboardService
   def best_seller_order_items
     data = {}
 
-    OrderItem.where(order_id: @orders).each do |order_item|
+    OrderItem.where(order_id: @orders).find_each do |order_item|
       data[order_item.name] ||= 0
       data[order_item.name] += order_item.quantity
     end

@@ -1,13 +1,17 @@
-<%= turbo_frame_tag export, class: 'd-table-row' do %>
-  <div class="d-table-cell p-2"><%= l(export.created_at, format: :long) %></div>
+<%
+  progression = export_progress(export)
+%>
 
-  <div class="d-table-cell p-2">
+<%= turbo_frame_tag export, class: 'd-table-row' do %>
+  <div class="d-table-cell border-bottom p-2"><%= l(export.created_at, format: :long) %></div>
+
+  <div class="d-table-cell border-bottom p-2">
     <div class="progress">
-      <div class="progress-bar" role="progressbar" style="width: <%= export_progress(export) %>%;">
+      <div class="<%= class_names('progress-bar', export_progress_bar_class(progression)) %>" role="progressbar" style="width: <%= progression %>%;">
         <%= export.total_processed %> / <%= export.total_count %>
       </div>
     </div>
   </div>
 
-  <div class="d-table-cell p-2"><%= export_badge(export) %></div>
+  <div class="d-table-cell border-bottom p-2"><%= export_badge(export) %></div>
 <% end %>

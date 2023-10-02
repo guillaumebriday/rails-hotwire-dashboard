@@ -13,6 +13,10 @@ class Order < ApplicationRecord
     where(status: status) if status.present?
   }
 
+  scope :by_product_name, ->(name) {
+    joins(:order_items).merge(OrderItem.by_product_name(name)) if name.present?
+  }
+
   scope :by_date, ->(query) {
     date = case query
            when 'last_6_months' then 6.months.ago
